@@ -24,29 +24,29 @@
 
 | File | Topic |
 |---|---|
-| `01-aws-cloud-architecture.md` | Core AWS services + your eGain migration story |
-| `02-containerization.md` | Docker, ECS, EKS — concepts + interview answers |
-| `03-amazon-q-app2container-cast.md` | The 3 niche tools from the JD |
-| `04-dotnet-aspnet-vbnet.md` | Bridging your .NET C# skills to the JD |
-| `05-behavioral-leadership.md` | STAR stories built from your resume |
-| `06-counter-questions.md` | Tough questions + honest, resume-backed answers |
+| [AWS Cloud Architecture](./01-aws-cloud-architecture.md) | Core AWS services + your eGain migration story |
+| [Containerization](./02-containerization.md) | Docker, ECS, EKS — concepts + interview answers |
+| [Amazon Q App2Container Cast](./03-amazon-q-app2container-cast.md) | The 3 niche tools from the JD |
+| [Dotnet AspNet VBNet](./04-dotnet-aspnet-vbnet.md) | Bridging your .NET C# skills to the JD |
+| [Behavioral Leadership](./05-behavioral-leadership.md) | STAR stories built from your resume |
+| [Counter Questions](./06-counter-questions.md) | Tough questions + honest, resume-backed answers |
 
 ---
 
 ## 30-Minute Review Priority (Night Before)
 
-1. **Read `03-amazon-q-app2container-cast.md` first** — highest knowledge gap
-2. **Read `06-counter-questions.md`** — so you're not caught off-guard
-3. **Skim `01-aws-cloud-architecture.md`** — reinforce your existing knowledge
-4. **Review `05-behavioral-leadership.md`** — have 3 STAR stories ready
+1. **Read [Amazon Q App2Container Cast](./03-amazon-q-app2container-cast.md) first** — highest knowledge gap
+2. **Read [Counter Questions](./06-counter-questions.md)** — so you're not caught off-guard
+3. **Skim [AWS Cloud Architecture](./01-aws-cloud-architecture.md)** — reinforce your existing knowledge
+4. **Review [Behavioral Leadership](./05-behavioral-leadership.md)** — have 3 STAR stories ready
 
 ---
 
 ## Revised Tonight's Priority Order
-1. **Read `03-amazon-q-app2container-cast.md`** — biggest gap
-2. **Read `08-javascript-react.md`** → Hooks section + Vue→React table
-3. **Read `07-dotnet-core-framework-csharp.md`** → async/await + DI sections
-4. **Read `06-counter-questions.md`** — gap handling
+1. **Read [Amazon Q App2Container Cast](./03-amazon-q-app2container-cast.md)** — biggest gap
+2. **Read [Javascript React](./08-javascript-react.md)`08-javascript-react.md`** → Hooks section + Vue→React table
+3. **Read [Dotnet Core Frameword C#](./07-dotnet-core-framework-csharp.md)** → async/await + DI sections
+4. **Read [Counter Questions](./06-counter-questions.md)** — gap handling
 
 ## Your Strongest Talking Points
 
