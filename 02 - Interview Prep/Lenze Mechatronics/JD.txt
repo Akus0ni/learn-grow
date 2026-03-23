@@ -1,0 +1,40 @@
+Designation –SR. Software Engineer
+Client Name: LENZE MECHATRONICS
+Experience: 6+ years
+Location: Pune  (Near Sangamwadi )
+Work Mode: Hybrid (4 days from office and1 day WFH)
+
+Skills & Technologies:
+Mandatory:
+Sound knowledge on object-oriented programming
+Experience on .Net framework/.NET Standard/.Net core with C#
+Good analytical & requirement analysis skills
+Familiarity with OOAD use of UML for creation of high- and low-level software design.
+Familiarity with version control systems such as Svn, ClearCase, Git, etc
+
+Desirable:
+Desktop applications development using WinForms OR WPF
+Knowledge of SOLID principles and design patterns.
+Knowledge of branching and tagging\labelling processes in version control system.
+Familiarity with estimation techniques and software engineering lifecycle.
+Familiarity with unit testing frameworks such as Nunit, XUnit, etc.
+
+Behaviors:
+Good team player
+Good collaboration with other cross functional teams
+Open to learn and work on different/new technologies
+Agile in nature
+Self-motivated and proactive
+Taking Ownership
+
+Role and Responsibilities:
+Own requirement and defect fixes with minimal supervision
+Analyze requirements and propose solutions. Identify and mitigate technical risks.
+Create effort estimations for the assigned requirement.
+Create software design by discussing with Lead
+Follow required software development processes as defined by Lead/Manager.
+Own the given task and be proactive in status reporting, risk identification etc.
+Flexible to context switch within different requirements assigned.
+Flexible to adopt and work on different technologies as required.
+Technical work management for self and team members.
+Good, effective and respectful communication with team, juniors and seniors.
