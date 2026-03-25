@@ -1,0 +1,20 @@
+[project]
+name = "ai-engineer-sprints"
+version = "0.1.0"
+description = "Hands-on sprints for the AI Engineer roadmap"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain",
+    "langchain-openai",
+    "langchain-anthropic",
+    "python-dotenv",
+    "tiktoken",
+    "pydantic",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["helpers*"]
