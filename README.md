@@ -19,6 +19,7 @@ This repository is a living document. It grows as I learn, reflects what I've en
 | [07 - DSA/](07%20-%20DSA/) | LeetCode Top 150 problems — curated list with links and difficulty ratings |
 | [08 - SOLID Principles/](08%20-%20SOLID%20Principles/) | SOLID design principles cheat sheet with C# examples |
 | [09 - CICD Microservices Interview Prep/](09%20-%20CICD%20Microservices%20Interview%20Prep/) | CI/CD pipelines, microservices with .NET Core, GitHub Actions — interview prep and hands-on guide |
+| [10 - OOPs/](10%20-%20OOPs/) | OOP concepts overview |
 
 ---
 
