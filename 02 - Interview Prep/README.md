@@ -11,6 +11,7 @@
 | 6 | [Counter Questions](./06-counter-questions.md) | Questions to ask the interviewer |
 | 7 | [.NET Core, Framework & C#](./07-dotnet-core-framework-csharp.md) | Deep-dive C# and .NET Core interview questions |
 | 8 | [JavaScript & React](./08-javascript-react.md) | JavaScript fundamentals, React Hooks, and component patterns |
+| 9 | [How to Crack a Coding Interview](./09-how-to-crack-coding-interview.md) | 7-step framework, BUD optimization, DS&A cheatsheet, prep strategy (Gayle McDowell) |
 | — | [Lenze Mechatronics/](./Lenze%20Mechatronics/) | Role-specific prep: OOP, C#/.NET, SOLID, WPF, unit testing, Agile |
 
 ## Lenze Mechatronics Sub-Folder
