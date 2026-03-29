@@ -197,6 +197,9 @@ aws s3 presign s3://shopwave-raw-$ACCT/test.txt --expires-in 3600
 
 #### Lab 2.2: CloudWatch Dashboard + Alarms (2 hrs)
 ```bash
+# Resolve your AWS Account ID (used in SNS alarm action ARN below)
+ACCT=$(aws sts get-caller-identity --query Account --output text)
+
 # Publish a custom metric:
 aws cloudwatch put-metric-data \
   --namespace "ShopWave/Orders" \
@@ -268,6 +271,9 @@ aws cloudwatch put-metric-alarm \
 
 #### Lab 3.2: VPC Flow Logs (30 min)
 ```bash
+# Resolve your AWS Account ID (used in the Flow Logs IAM role ARN below)
+ACCT=$(aws sts get-caller-identity --query Account --output text)
+
 # Enable Flow Logs on the VPC:
 aws ec2 create-flow-logs \
   --resource-ids vpc-xxx \
@@ -505,6 +511,9 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
 EOF
 
+# Set AWS Account ID used in ECR URLs
+ACCT=$(aws sts get-caller-identity --query Account --output text)
+
 # Authenticate to ECR:
 aws ecr get-login-password | docker login --username AWS \
   --password-stdin $ACCT.dkr.ecr.us-east-1.amazonaws.com
@@ -534,6 +543,9 @@ aws ecs create-service \
 
 #### Lab 6.2: EKS Quick Start (2 hrs)
 ```bash
+# Resolve your AWS Account ID (used in ECR image URIs below)
+ACCT=$(aws sts get-caller-identity --query Account --output text)
+
 # Install eksctl (AWS CLI for EKS)
 brew install eksctl  # or see https://eksctl.io
 
