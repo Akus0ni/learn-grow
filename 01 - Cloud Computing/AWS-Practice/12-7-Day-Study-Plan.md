@@ -104,17 +104,63 @@ aws s3 mb s3://test-bucket-$(date +%s)  # Should fail (read-only)
 
 #### Lab 2.1: S3 Deep Dive (2 hrs)
 ```bash
-# Create 3 buckets: raw, processed, archive
-# Enable versioning on all
-aws s3 mb s3://shopwave-raw-$(aws sts get-caller-identity --query Account --output text)
-aws s3 mb s3://shopwave-processed-$(aws sts get-caller-identity --query Account --output text)
+# Resolve your AWS Account ID once and reuse throughout this lab
+ACCT=$(aws sts get-caller-identity --query Account --output text)
+
+# Create standard buckets (raw + processed) with versioning
+aws s3api create-bucket \
+  --bucket shopwave-raw-$ACCT \
+  --region us-east-1
+aws s3api create-bucket \
+  --bucket shopwave-processed-$ACCT \
+  --region us-east-1
+
+# Enable Block Public Access on both buckets
+aws s3api put-public-access-block \
+  --bucket shopwave-raw-$ACCT \
+  --public-access-block-configuration "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
+
+# Enable versioning
+aws s3api put-bucket-versioning \
+  --bucket shopwave-raw-$ACCT \
+  --versioning-configuration Status=Enabled
 
 # Test versioning:
 echo "version 1" | aws s3 cp - s3://shopwave-raw-$ACCT/test.txt
 echo "version 2" | aws s3 cp - s3://shopwave-raw-$ACCT/test.txt
 aws s3api list-object-versions --bucket shopwave-raw-$ACCT --prefix test.txt
 
-# Create lifecycle policy:
+# ⚠️  IMPORTANT: S3 Object Lock MUST be enabled at bucket creation time.
+# You cannot enable Object Lock on an existing bucket.
+# Create a dedicated compliance/audit bucket with Object Lock enabled from the start:
+aws s3api create-bucket \
+  --bucket shopwave-audit-$ACCT \
+  --region us-east-1 \
+  --object-lock-enabled-for-bucket
+
+# Enable versioning on the Object Lock bucket (required for Object Lock to work)
+aws s3api put-bucket-versioning \
+  --bucket shopwave-audit-$ACCT \
+  --versioning-configuration Status=Enabled
+
+# Apply a default Object Lock retention rule (Governance mode, 30 days)
+aws s3api put-object-lock-configuration \
+  --bucket shopwave-audit-$ACCT \
+  --object-lock-configuration '{
+    "ObjectLockEnabled": "Enabled",
+    "Rule": {
+      "DefaultRetention": {
+        "Mode": "GOVERNANCE",
+        "Days": 30
+      }
+    }
+  }'
+
+# Upload a test object and verify its retention settings
+echo "audit record" | aws s3 cp - s3://shopwave-audit-$ACCT/audit.txt
+aws s3api get-object-retention --bucket shopwave-audit-$ACCT --key audit.txt
+
+# Create lifecycle policy on raw bucket:
 aws s3api put-bucket-lifecycle-configuration \
   --bucket shopwave-raw-$ACCT \
   --lifecycle-configuration file://lifecycle.json
@@ -137,10 +183,14 @@ aws s3api put-bucket-lifecycle-configuration \
 aws s3 presign s3://shopwave-raw-$ACCT/test.txt --expires-in 3600
 ```
 
+> **Key constraint**: S3 Object Lock can only be enabled when a bucket is first created
+> (`--object-lock-enabled-for-bucket` flag). It cannot be added to an existing bucket.
+> Plan your bucket naming strategy upfront for any compliance use cases.
+
 **Tasks:**
-1. Create bucket with Block Public Access enabled
-2. Enable Versioning + Object Lock (Governance mode for test)
-3. Set up lifecycle policy (IA after 30d, Glacier after 90d)
+1. Create standard buckets with Block Public Access enabled
+2. Create a separate Object Lock bucket at creation time (`--object-lock-enabled-for-bucket`), then configure Governance mode retention (30 days)
+3. Set up lifecycle policy on the raw bucket (IA after 30d, Glacier after 90d)
 4. Create a bucket policy allowing only a specific IAM role
 5. Enable S3 Server Access Logging
 6. Generate and test a pre-signed URL
