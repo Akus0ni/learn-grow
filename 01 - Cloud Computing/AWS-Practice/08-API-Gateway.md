@@ -19,7 +19,7 @@ Amazon API Gateway is a **fully managed service** for creating, deploying, secur
 | Cost | Higher | ~70% cheaper |
 | Latency | Slightly higher | Lower |
 | Caching | Yes | No |
-| Request/response transform | Yes (mapping templates) | No |
+| Request/response transform | Yes (VTL mapping templates & parameter mapping) | Limited (parameter mapping only; no VTL mapping templates) |
 | Usage plans & API keys | Yes | No |
 | WAF integration | Yes | Yes |
 | Private integrations | Yes | Yes |

@@ -221,7 +221,7 @@ A B2C e-commerce startup called **ShopWave** needs to:
 
 | Time | Normal Load | Black Friday | How AWS Handles It |
 |------|------------|--------------|-------------------|
-| T-0: Sale starts | 1,000 RPS | 20,000 RPS | API Gateway scales automatically — no cap |
+| T-0: Sale starts | 1,000 RPS | 20,000 RPS | API Gateway scales automatically up to account quotas (quota increases available) |
 | T+0: Order spike | 50/min | 5,000/min | Lambda scales from 100 → 3,000 concurrent (Provisioned Concurrency handles first wave) |
 | T+5: DB pressure | 200 queries/s | 8,000/s | RDS Proxy absorbs connection spike; Read Replicas serve all GET queries |
 | T+10: Queue buildup | SQS queue ~0 | SQS depth 200,000 | Lambda (OrderProcessor) scales to 1,000 concurrent; processes backlog |

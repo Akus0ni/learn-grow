@@ -150,7 +150,7 @@ Lambda polls SQS via an **Event Source Mapping**. It retrieves batches of messag
 
 ### Q6. What is the Lambda execution environment lifecycle?
 1. **Init phase**: Download code, start runtime, run initialization code (outside handler)
-2. **Invoke phase**: Run handler; environment waits for next invocation (kept warm for ~15 min)
+2. **Invoke phase**: Run handler; environment waits for the next invocation and may be reused for some time (lifetime is workload- and platform-dependent, not guaranteed)
 3. **Shutdown phase**: Runtime sends shutdown event; environment is frozen and eventually terminated
 
 Objects initialized in the **Init phase** (DB connections, SDK clients) are reused across invocations in the same environment.

@@ -338,7 +338,7 @@ SELECT * FROM orders;
 # Create secret:
 aws secretsmanager create-secret \
   --name shopwave/rds/admin \
-  --secret-string '{"username":"admin","password":"YourPassword123!"}'
+  --generate-secret-string '{"SecretStringTemplate":"{\"username\":\"admin\"}","GenerateStringKey":"password","PasswordLength":32,"ExcludePunctuation":true}'
 
 # Create RDS Proxy (Console):
 # - Target: your RDS instance
@@ -511,6 +511,8 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
 EOF
 
+# Set AWS Account ID used in ECR URLs
+ACCT=$(aws sts get-caller-identity --query Account --output text)
 # Set AWS Account ID used in ECR URLs
 ACCT=$(aws sts get-caller-identity --query Account --output text)
 
