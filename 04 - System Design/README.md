@@ -1,5 +1,13 @@
 # System Design — Study Notes
 
+## Quick Reference (Root)
+
+| File | Contents |
+|------|----------|
+| [System Design Quick Guide](./system-design-quick-guide.md) | 1-page cheat sheet covering core system design concepts |
+| [Quick Guide](./Quick_Guide.gif) | Visual quick-reference guide (GIF) |
+| [10 Key Pillars of System Design](./10KeyPillars_of_system_design.jfif) | Infographic of the 10 key pillars of system design |
+
 ## Reference Material (`Refer/`)
 
 | # | File | Contents |
