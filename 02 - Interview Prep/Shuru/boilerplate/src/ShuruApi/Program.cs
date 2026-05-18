@@ -27,6 +27,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 });
 
 builder.Services.AddScoped<IItemService, ItemService>();
+builder.Services.AddScoped<ITableService, TableService>();
+builder.Services.AddScoped<ITableReservationService, TableReservationService>();
 
 builder.Services.AddControllers();
 builder.Services.AddProblemDetails();

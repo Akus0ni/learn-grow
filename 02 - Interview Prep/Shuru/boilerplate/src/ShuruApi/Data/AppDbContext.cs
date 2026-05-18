@@ -9,12 +9,44 @@ public class AppDbContext : DbContext
 
     public DbSet<Item> Items => Set<Item>();
 
+    public DbSet<Table> Tables => Set<Table>();
+    public DbSet<Customer> Customers => Set<Customer>();
+    public DbSet<TableReservation> TableReservations => Set<TableReservation>();
+
     protected override void OnModelCreating(ModelBuilder b)
     {
         b.Entity<Item>(e =>
         {
             e.Property(x => x.Name).IsRequired().HasMaxLength(200);
             e.HasIndex(x => x.Name);
+        });
+
+        b.Entity<Table>(e =>
+        {
+            e.Property(x => x.Id).IsRequired();
+            e.Property(x => x.TableNumber).IsRequired().HasMaxLength(50);
+            e.Property(x => x.SeatingCapacity).IsRequired();
+            e.HasIndex(x => x.TableNumber);
+        });
+
+        b.Entity<Customer>(e =>
+        {
+            e.Property(x => x.Id).IsRequired();
+            e.Property(x => x.Name).IsRequired().HasMaxLength(200);
+            e.HasIndex(x => x.Name);
+        });
+
+        b.Entity<TableReservation>(e =>
+        {
+                e.HasOne(tr => tr.Table)
+                .WithMany()
+                .HasForeignKey("TableId")
+                .OnDelete(DeleteBehavior.Cascade);
+    
+                e.HasOne(tr => tr.Customer)
+                .WithMany()
+                .HasForeignKey("CustomerId")
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
 
