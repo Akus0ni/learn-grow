@@ -7,5 +7,6 @@
 | 3 | [Azure Services](./03-Azure-Services.md) | 85+ Azure services across the same categories, including Entra ID, Cosmos DB, Synapse, Azure OpenAI, Bicep, Arc, and more |
 | 4 | [GCP Services](./04-GCP-Services.md) | 80+ GCP services including BigQuery, Spanner, Cloud Run, GKE, Vertex AI, Gemini, TPU, Bigtable, Anthos, and more |
 | 5 | [Summary & Service Comparison](./05-Summary-Service-Comparison.md) | Cross-cloud comparison tables by use case (Compute, Storage, DB, Networking, Security, AI/ML, Analytics, DevOps, Migration) with "Why Choose This Provider" reasoning and a Quick Decision Guide |
+| 6 | [**AWS Practice (Deep Dive)**](./AWS-Practice/README.md) | Top 10 AWS services with in-depth interview Q&A (150 questions), real-world architectures, hands-on labs, capstone e-commerce design, and a 7-day study plan with $100 credit budget |
 
 Each table is structured for quick interview revision with actionable details rather than generic descriptions.
